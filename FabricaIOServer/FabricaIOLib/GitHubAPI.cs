@@ -19,10 +19,10 @@ class GitHubAPI
     public GitHubAPI(string AppName)
     {
         client = new GitHubClient(new ProductHeaderValue(AppName));
-        // Temporary using user secrets to store APi token
-        // var builder = WebApplication.CreateBuilder();
-        // Credentials token = new Credentials(builder.Configuration["GitHubAPItoken"]);
-        // client.Credentials = token;
+        // Temporary using user environmental variable to store APi token
+        var builder = WebApplication.CreateBuilder();
+        Credentials token = new Credentials(Environment.GetEnvironmentVariable("GITHUB_API_TOKEN"));
+        client.Credentials = token;
     }
 
     /// <summary>

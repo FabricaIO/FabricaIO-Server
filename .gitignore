@@ -4,7 +4,9 @@
 ## Get latest from `dotnet new gitignore`
 
 # DB Migrations
-Migrations/
+# Migrations/
+*.db-shm
+*.db-wal
 
 # dotenv files
 .env

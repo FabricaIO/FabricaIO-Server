@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddOpenApi();
-string databasePath = AppDomain.CurrentDomain.BaseDirectory; //Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+string databasePath = builder.Environment.WebRootPath;
 databasePath = Path.Join(databasePath, "database", "device.db");
 string connectionString = $"Data Source={databasePath};";
 Console.WriteLine(connectionString);
