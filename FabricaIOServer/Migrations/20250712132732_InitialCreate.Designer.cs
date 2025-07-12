@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FabricaIOServer.Migrations
 {
     [DbContext(typeof(DeviceContext))]
-    [Migration("20250712125803_InitialCreate")]
+    [Migration("20250712132732_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
