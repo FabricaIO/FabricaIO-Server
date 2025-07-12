@@ -1,10 +1,6 @@
 using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
 using FabricaIOServer.Models;
-using System.Threading.Tasks;
-using FabricaIOServer.FabricaIOLib;
-using Newtonsoft;
-using Newtonsoft.Json;
+using Microsoft.AspNetCore.Mvc;
 
 namespace FabricaIOServer.Controllers;
 
@@ -17,25 +13,16 @@ public class HomeController : Controller
         _logger = logger;
     }
 
-    public async Task<IActionResult> Index()
+    public IActionResult Index()
     {
-        GitHubAPI api = new("Fabrica-IO-Server");
-        IReadOnlyList<string> jsons = await api.getLibraryJsons(await api.getRepos());
-        foreach (string json in jsons)
-        {
-            FabricaIODevice? device = JsonConvert.DeserializeObject<FabricaIODevice>(json);
-            if (device?.fabricaio != null)
-            {
-                Console.WriteLine(device?.name);
-            }
-        }
-        return View();
+        return Redirect("https://github.com/FabricaIO");
+        //return View();
     }
 
-    public IActionResult Privacy()
-    {
-        return View();
-    }
+    // public IActionResult Privacy()
+    // {
+    //     return View();
+    // }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
