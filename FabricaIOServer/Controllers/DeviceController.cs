@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using FabricaIOServer.FabricaIOLib;
 using FabricaIOServer.Models;
+using Microsoft.AspNetCore.Cors;
 
 namespace FabricaIOServer.Controllers
 {
@@ -17,6 +18,7 @@ namespace FabricaIOServer.Controllers
         }
 
         // GET: api/Device
+        [EnableCors("AllowAll")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Device>>> GetDevices()
         {
@@ -24,6 +26,7 @@ namespace FabricaIOServer.Controllers
         }
 
         // GET: api/Device/id/5
+        [EnableCors("AllowAll")]
         [HttpGet("id/{id}")]
         public async Task<ActionResult<Device>> GetDevice(int id)
         {
@@ -37,7 +40,8 @@ namespace FabricaIOServer.Controllers
             return device;
         }
 
-         // GET: api/Device/actor-DFPeristalticPump
+        // GET: api/Device/actor-DFPeristalticPump
+        [EnableCors("AllowAll")]
         [HttpGet("{name}")]
         public async Task<ActionResult<Device>> GetDevice(string name)
         {

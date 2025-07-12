@@ -10,6 +10,12 @@ databasePath = Path.Join(databasePath, "database", "device.db");
 string connectionString = $"Data Source={databasePath};";
 Console.WriteLine(connectionString);
 builder.Services.AddDbContext<DeviceContext>(opt => opt.UseSqlite(connectionString));
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy => { policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod(); });
+});
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
@@ -30,7 +36,10 @@ app.UseSwaggerUi(options =>
 });
 
 app.UseHttpsRedirection();
+
 app.UseRouting();
+
+app.UseCors();
 
 app.UseAuthorization();
 
