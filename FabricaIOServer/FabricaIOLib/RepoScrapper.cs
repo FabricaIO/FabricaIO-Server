@@ -20,11 +20,11 @@ public class RepoScrapper
     /// </summary>
     public async void scrapperLoop()
     {
-        TimeSpan delay = new(24, 0, 0);
+        TimeSpan delay = new(6, 0, 0);
         while (true)
         {
             await updateDatabase();
-            Console.WriteLine("Sleeping for 24 hours");
+            Console.WriteLine("Sleeping for 6 hours");
             await Task.Delay(delay);
         }
     }
