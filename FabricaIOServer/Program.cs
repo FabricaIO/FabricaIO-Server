@@ -5,8 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddOpenApi();
-string databasePath = builder.Environment.WebRootPath;
-databasePath = Path.Join(databasePath, "database", "device.db");
+string databasePath = Path.Join(builder.Environment.WebRootPath, "database", "device.db");
 string connectionString = $"Data Source={databasePath};";
 Console.WriteLine(connectionString);
 builder.Services.AddDbContext<DeviceContext>(opt => opt.UseSqlite(connectionString));
