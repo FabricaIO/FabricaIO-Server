@@ -26,12 +26,13 @@ class GitHubAPI
     }
 
     /// <summary>
-    /// Gets all repos for Fabrica-IO Org
+    /// Gets all repos for an organization
     /// </summary>
+    /// <param name="org">The name of the organization to scrape the repos of</param>
     /// <returns>A list of the repos</returns>
-    public async Task<IReadOnlyList<Repository>> getRepos()
+    public async Task<IReadOnlyList<Repository>> getRepos(string org)
     {
-        return await client.Repository.GetAllForOrg("FabricaIO");
+        return await client.Repository.GetAllForOrg(org);
     }
 
     /// <summary>

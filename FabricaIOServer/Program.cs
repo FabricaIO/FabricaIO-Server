@@ -52,8 +52,8 @@ app.MapControllerRoute(
 // Start the background thread to scape repositories
 DbContextOptionsBuilder<DeviceContext> optionsBuilder = new DbContextOptionsBuilder<DeviceContext>();
 optionsBuilder.UseSqlite(connectionString);
-RepoScrapper scrapper = new(new DeviceContext(optionsBuilder.Options));
-Thread backgroundScrapper = new Thread(new ThreadStart(scrapper.scrapperLoop));
+RepoScraper scrapper = new(new DeviceContext(optionsBuilder.Options), "FabricaIO", "Fabrica-IO-Server");
+Thread backgroundScrapper = new Thread(new ThreadStart(scrapper.scraperLoop));
 backgroundScrapper.Start();
 
 app.Run();

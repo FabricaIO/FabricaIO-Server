@@ -1,8 +1,11 @@
 namespace FabricaIOServer.FabricaIOLib;
 
+/// <summary>
+/// Describes the minimum required library.json for Fabrica-IO devices as an object
+/// </summary>
 public class FabricaIODevice
 {
-    public required string name, version, description, keywords, license, homepage, frameworks;
+    public required string name, version, description, keywords, license, homepage, frameworks, platforms;
     public required RepositoryInfo repository;
     public required List<Author> authors;
     public required Fabricaio fabricaio;
