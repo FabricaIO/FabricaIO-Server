@@ -41,6 +41,10 @@ namespace FabricaIOServer.Migrations
                     b.Property<int>("type")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("version")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.HasKey("id");
 
                     b.ToTable("Devices");

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FabricaIOServer.Migrations
 {
     [DbContext(typeof(DeviceContext))]
-    [Migration("20250712132732_InitialCreate")]
+    [Migration("20250718001351_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -43,6 +43,10 @@ namespace FabricaIOServer.Migrations
 
                     b.Property<int>("type")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("version")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.HasKey("id");
 

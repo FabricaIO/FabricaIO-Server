@@ -17,6 +17,7 @@ namespace FabricaIOServer.Migrations
                     id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     name = table.Column<string>(type: "TEXT", nullable: false),
+                    version = table.Column<string>(type: "TEXT", nullable: false),
                     keywords = table.Column<string>(type: "TEXT", nullable: false),
                     description = table.Column<string>(type: "TEXT", nullable: false),
                     type = table.Column<int>(type: "INTEGER", nullable: false),

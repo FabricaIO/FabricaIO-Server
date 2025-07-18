@@ -50,11 +50,12 @@ public class RepoScrapper
                     entry.DeviceJson = JsonConvert.SerializeObject(device);
                     entry.keywords = device.keywords;
                     entry.type = device.fabricaio.type;
+                    entry.version = device.version;
                     entry.description = device.description;
                 }
                 else
                 {
-                    _context.Add(new Device { name = device.name, keywords = device.keywords, description = device.description, type = device.fabricaio.type, DeviceJson = JsonConvert.SerializeObject(device) });
+                    _context.Add(new Device { name = device.name, keywords = device.keywords, version = device.version, description = device.description, type = device.fabricaio.type, DeviceJson = JsonConvert.SerializeObject(device) });
                 }
                 await _context.SaveChangesAsync();
             }
