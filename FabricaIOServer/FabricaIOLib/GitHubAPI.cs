@@ -3,7 +3,7 @@ using Octokit;
 namespace FabricaIOServer.FabricaIOLib;
 
 /// <summary>
-/// Provides methods for accessing and reading the contents of github repositories.
+/// Provides methods for accessing and reading the contents of github repositories
 /// </summary>
 class GitHubAPI
 {
@@ -19,7 +19,7 @@ class GitHubAPI
     public GitHubAPI(string AppName)
     {
         client = new GitHubClient(new ProductHeaderValue(AppName));
-        // Temporary using user environmental variable to store APi token
+        // Temporarily using user environmental variable to store API token
         var builder = WebApplication.CreateBuilder();
         Credentials token = new Credentials(Environment.GetEnvironmentVariable("GITHUB_API_TOKEN"));
         client.Credentials = token;

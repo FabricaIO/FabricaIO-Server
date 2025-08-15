@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 namespace FabricaIOServer.FabricaIOLib;
 
 /// <summary>
-/// Used to scrape info from repositories
+/// Used to scrape device info from repositories
 /// </summary>
 public class RepoScraper
 {
@@ -19,17 +19,17 @@ public class RepoScraper
     private string _org, _AppName;
 
     /// <summary>
-    /// The period, in hours, to repeat scraping the repositories
+    /// The period in hours to repeat scraping the repositories
     /// </summary>
     private int _period;
 
     /// <summary>
     /// Creates a new repo scrapper
     /// </summary>
-    /// <param name="context">the database context to use</param>
-    /// <param name="org">The name or the organization to scrape repos for</param>
-    /// <param name="AppName">The name of the Github registered app using the API</param>
-    /// <param name="period">The period, in hours, to repeat the scraping</param>
+    /// <param name="context">The database context to use</param>
+    /// <param name="org">The name of the organization to scrape repos for</param>
+    /// <param name="AppName">The name of the GitHub registered app using the API</param>
+    /// <param name="period">The period in hours to repeat the scraping</param>
     public RepoScraper(DeviceContext context, string org, string AppName, int period = 6)
     {
         _context = context;

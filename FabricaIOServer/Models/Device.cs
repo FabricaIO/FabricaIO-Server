@@ -1,7 +1,7 @@
 namespace FabricaIOServer.Models;
 
 /// <summary>
-/// Models a Fabrica-IO device at it appears in the database
+/// Models a Fabrica-IO device as it appears in the database
 /// </summary>
 public class Device
 {
